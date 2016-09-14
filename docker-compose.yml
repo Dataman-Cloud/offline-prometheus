@@ -1,7 +1,6 @@
 version: '2'
 services:
   prometheus:
-   #image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-prometheus:v1.1.2.2016091302
     image: demoregistry.dataman-inc.com/library/centos7-docker-prometheus:v1.1.2.2016091302 
     restart: always
     volumes:
@@ -11,13 +10,13 @@ services:
       - 9090:9090 
     command:
       ["-storage.local.retention=48h", "-storage.local.path=/data/prometheus"]
-grafana:
+  grafana:
     image: demoregistry.dataman-inc.com/library/centos7-docker-grafana:v3.1.1.2016091401 
     environment:
-    	  - PROMETHEUS_HOST=prometheus
-          - PROMETHEUS_PORT=9090
+      - PROMETHEUS_HOST=prometheus
+      - PROMETHEUS_PORT=9090
     restart: always
     ports:
-      - 3000:3000 
+      - 3000:3000
     depends_on:
       - prometheus
