@@ -1,7 +1,7 @@
 #!/bin/bash
-. ../config.cfg
 base_dir=$(cd `dirname $0` && pwd)
 cd $base_dir
+. ../config.cfg
 
 CONSUL_DNS=""
 for i in $(echo $SRY_MASTER_LIST | sed "s/,/ /g")
