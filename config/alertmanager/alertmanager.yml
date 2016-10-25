@@ -1,0 +1,16 @@
+global:
+  # The smarthost and SMTP sender used for mail notifications.
+  smtp_smarthost: 'localhost:25'
+  smtp_from: 'alertmanager@example.org'
+  smtp_auth_username: 'alertmanager'
+  smtp_auth_password: 'password'
+  resolve_timeout: 5m
+route:
+   # Default receiver
+   receiver: 'alert_console'
+receivers:
+  - name: 'alert_console'
+    webhook_configs:
+      - send_resolved: true
+      # The endpoint to send HTTP POST requests to.
+      url: http://192.168.1.58:8090
