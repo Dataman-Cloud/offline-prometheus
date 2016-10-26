@@ -26,5 +26,4 @@ scrape_configs:
         services: ['cadvisor']
 
 rule_files:
-  - '/data/config/templ_alert.rules'
-#- '/data/config/prometheus.rules'
+  - '/data/config/alert.rules'

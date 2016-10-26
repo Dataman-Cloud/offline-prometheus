@@ -8,7 +8,7 @@ services:
     ports:
       - 9093:9093   
     command:
-      ["-storage.path=/data/alertmanager", "-config.file=/data/config/alertmanager/alertmanager.yml"]
+      ["-storage.path=/data/alertmanager", "-config.file=/data/config/alertmanager.yml"]
   prometheus:
     image: offlineregistry.dataman-inc.com:5000/library/centos7-docker-prometheus:v1.1.2.2016091302
     restart: always
@@ -23,7 +23,7 @@ services:
       - --CONSUL_DNS_3--
     dns_search: consul.service.consul
     command:
-      ["-alertmanager.url=http://--ALERTMANAGER_IP--:9093"","-storage.local.retention=48h", "-storage.local.path=/data/prometheus", "-config.file=/data/config/prometheus.yml"]
+      ["-alertmanager.url=http://--ALERTMANAGER_IP--:9093","-storage.local.retention=48h", "-storage.local.path=/data/prometheus", "-config.file=/data/config/prometheus.yml"]
     depends_on:
       - alertmanager
   grafana:

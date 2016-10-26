@@ -13,8 +13,8 @@ receivers:
   - name: 'alert_console'
     webhook_configs:
       - send_resolved: true
-      # The endpoint to send HTTP POST requests to.
-      url: http://webhook.service.ip:8090
+        # The endpoint to send HTTP POST requests to.
+        url: http://webhook.service.ip:8090
   - name: 'alert_ops_team'
     email_configs:
       - to: 'opsteam@dataman-inc.com'
