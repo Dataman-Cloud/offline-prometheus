@@ -1,5 +1,5 @@
 global:
-  # The smarthost and SMTP sender used for mail notifications.
+  # mail server notifications.
   smtp_smarthost: 'localhost:25'
   smtp_from: 'alertmanager@example.org'
   smtp_auth_username: 'alertmanager'
@@ -7,10 +7,14 @@ global:
   resolve_timeout: 5m
 route:
    # Default receiver
-   receiver: 'alert_console'
+   #receiver: 'alert_console'
+   receiver: 'alert_ops_team'
 receivers:
   - name: 'alert_console'
     webhook_configs:
       - send_resolved: true
       # The endpoint to send HTTP POST requests to.
-      url: http://192.168.1.58:8090
+      url: http://webhook.service.ip:8090
+  - name: 'alert_ops_team'
+    email_configs:
+      - to: 'opsteam@dataman-inc.com'

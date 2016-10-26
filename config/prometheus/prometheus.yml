@@ -25,5 +25,6 @@ scrape_configs:
       - server: 'consul.service.consul:8500'
         services: ['cadvisor']
 
-#rule_files:
-#  - '/data/config/prometheus.rules'
+rule_files:
+  - '/data/config/templ_alert.rules'
+#- '/data/config/prometheus.rules'

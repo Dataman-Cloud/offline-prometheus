@@ -24,5 +24,6 @@ if [ "x$MASTER3" != "x" ];then
 	sed -i 's#--CONSUL_DNS_3--#'$MASTER3'#g' docker-compose.yml
 fi
 sed -i 's#--PROMETHEUS_IP--#'$PROMETHEUS_IP'#g' docker-compose.yml
+sed -i 's#--ALERTMANAGER_IP--#'$ALERTMANAGER_IP'#g' docker-compose.yml
 
 docker-compose -p dataman up -d

@@ -8,8 +8,4 @@ function check_port(){
 
 check_port grafana 3000
 check_port prometheus 9090
-
-
-
-
-
+check_port prometheus 9093
